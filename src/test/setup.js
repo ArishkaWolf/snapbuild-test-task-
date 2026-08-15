@@ -15,3 +15,4 @@ Object.defineProperty(window, 'matchMedia', {
 });
 
 window.PointerEvent = window.MouseEvent;
+Element.prototype.scrollBy = vi.fn();

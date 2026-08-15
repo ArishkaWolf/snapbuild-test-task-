@@ -32,8 +32,13 @@ export function Comparison() {
     frame?.classList.remove('is-dragging');
     if (frame?.hasPointerCapture?.(event.pointerId)) frame.releasePointerCapture(event.pointerId);
   };
+  const scrollWithKeyboard = event => {
+    if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+    event.preventDefault();
+    frameRef.current?.scrollBy({ left: event.key === 'ArrowRight' ? 260 : -260, behavior: 'smooth' });
+  };
   return <section className="comparison" id="features"><h2>Почему команды выбирают Снэпбилд</h2><p>Вы получаете не редактор, а результат: готовые маркетинговые материалы без проблем с настройками</p>
-    <div className="comparison__frame" ref={frameRef} tabIndex="0" aria-label="Сравнение решений: пролистайте вправо, чтобы увидеть остальные колонки" onPointerDown={startDrag} onPointerMove={drag} onPointerUp={endDrag} onPointerCancel={endDrag}><div className="comparison__brand-outline" />
+    <div className="comparison__frame" ref={frameRef} tabIndex={0} aria-label="Сравнение решений: используйте горизонтальный скролл или клавиши со стрелками" onKeyDown={scrollWithKeyboard} onPointerDown={startDrag} onPointerMove={drag} onPointerUp={endDrag} onPointerCancel={endDrag}><div className="comparison__brand-outline" />
       <div className="comparison__table" role="table"><div className="comparison__row comparison__row--header" role="row"><div>Особенности</div>{columns.map((item, index) => <div className={index === 0 ? 'comparison__brand' : ''} key={item}>{item}</div>)}</div>
       {rows.map(([label, ...values]) => <div className="comparison__row" role="row" key={label}><div className="comparison__label">{label}</div>{values.map((value, index) => <div className={index === 0 ? 'comparison__brand' : ''} key={index}>{value}</div>)}</div>)}</div>
     </div>

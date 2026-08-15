@@ -34,12 +34,21 @@ describe('основные компоненты', () => {
     render(<Header />);
     const toggle = screen.getByRole('button', { name: 'Открыть меню' });
     await user.click(toggle);
-    expect(screen.getByRole('button', { name: 'Закрыть меню' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Закрыть меню' })).toHaveAttribute('aria-expanded', 'true');
     await user.click(screen.getByRole('link', { name: 'FAQ' }));
     expect(screen.getByRole('button', { name: 'Открыть меню' })).toBeInTheDocument();
     Object.defineProperty(window, 'scrollY', { configurable: true, value: 30 });
     fireEvent.scroll(window);
     expect(document.querySelector('.site-header')).toHaveClass('site-header--scrolled');
+  });
+
+  it('закрывает мобильное меню клавишей Escape', async () => {
+    const user = userEvent.setup();
+    render(<Header />);
+    await user.click(screen.getByRole('button', { name: 'Открыть меню' }));
+    await user.keyboard('{Escape}');
+    expect(screen.getByRole('button', { name: 'Открыть меню' })).toHaveAttribute('aria-expanded', 'false');
+    expect(document.body.style.overflow).toBe('');
   });
 
   it('раскрывает и закрывает FAQ', async () => {
@@ -69,6 +78,8 @@ describe('основные компоненты', () => {
     fireEvent.pointerMove(comparison, { clientX: 50, pointerId: 1 });
     fireEvent.pointerUp(comparison, { pointerId: 1 });
     expect(comparison.scrollLeft).toBe(70);
+    fireEvent.keyDown(comparison, { key: 'ArrowRight' });
+    expect(comparison.scrollBy).toHaveBeenCalled();
     unmount();
     render(<Roadmap />);
     const roadmap = document.querySelector('.roadmap__scroller');
@@ -77,5 +88,7 @@ describe('основные компоненты', () => {
     fireEvent.pointerMove(roadmap, { clientX: 80, pointerId: 1 });
     fireEvent.pointerCancel(roadmap, { pointerId: 1 });
     expect(roadmap.scrollLeft).toBe(30);
+    fireEvent.keyDown(roadmap, { key: 'ArrowLeft' });
+    expect(roadmap.scrollBy).toHaveBeenCalled();
   });
 });

@@ -26,10 +26,20 @@ export function Roadmap() {
     const multiplier = window.matchMedia('(max-width: 767px)').matches ? 3.6 : 1;
     scroller.current.scrollLeft = drag.current.startLeft - (event.clientX - drag.current.startX) * multiplier;
   };
-  const pointerEnd = () => { drag.current = null; scroller.current?.classList.remove('is-dragging'); };
+  const pointerEnd = (event) => {
+    const el = scroller.current;
+    drag.current = null;
+    el?.classList.remove('is-dragging');
+    if (el?.hasPointerCapture?.(event.pointerId)) el.releasePointerCapture(event.pointerId);
+  };
+  const keyDown = event => {
+    if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+    event.preventDefault();
+    scroller.current?.scrollBy({ left: event.key === 'ArrowRight' ? 320 : -320, behavior: 'smooth' });
+  };
   return <section className="roadmap" id="roadmap"><header><h2>Каждый день — новый релиз</h2><p>Приоритизируем бэклог для ваших целей</p></header>
     <div className="roadmap__hint">Удерживайте и тяните <span>↔</span></div>
-    <div className="roadmap__scroller" ref={scroller} onPointerDown={pointerDown} onPointerMove={pointerMove} onPointerUp={pointerEnd} onPointerCancel={pointerEnd}>
+    <div className="roadmap__scroller" ref={scroller} tabIndex={0} aria-label="Дорожная карта: используйте горизонтальный скролл или клавиши со стрелками" onKeyDown={keyDown} onPointerDown={pointerDown} onPointerMove={pointerMove} onPointerUp={pointerEnd} onPointerCancel={pointerEnd}>
       <div className="roadmap__canvas"><div className="roadmap__track"><div className="roadmap__track-fill" /></div>
       <div className="roadmap__items">{releases.map(([title, description, date], index) => <article className={index <= 8 ? 'is-passed' : ''} key={date}><span className="roadmap__dot"/><h3>{title}</h3><p>{description}</p><time>{date}</time></article>)}</div></div>
     </div>

@@ -48,9 +48,9 @@ export function Showcase() {
     frame = requestAnimationFrame(tick); return () => cancelAnimationFrame(frame);
   }, [tab, step]);
   const active = slides[tab];
-  return <section className="showcase" id="showcase"><h2>Любой контент в фирменном стиле за считанные минуты</h2><div className="showcase__tabs" role="tablist">{slides.map((item, index) => <button className={index === tab ? 'is-active' : ''} type="button" onClick={() => activateTab(index)} key={item.label}>{item.label}</button>)}</div>
+  return <section className="showcase" id="showcase"><h2>Любой контент в фирменном стиле за считанные минуты</h2><div className="showcase__tabs" role="tablist" aria-label="Форматы контента">{slides.map((item, index) => <button id={`showcase-tab-${index}`} className={index === tab ? 'is-active' : ''} type="button" role="tab" aria-selected={index === tab} aria-controls="showcase-panel" tabIndex={index === tab ? 0 : -1} onClick={() => activateTab(index)} key={item.label}>{item.label}</button>)}</div>
     <div className="showcase__body"><div className="showcase__steps">{active.items.map(([title, text], index) => <button className={index === step ? 'is-open' : ''} type="button" onClick={() => activateStep(index)} key={title}><span className="showcase__step-title">{title}</span>{index === step && <span className="showcase__step-description">{text}</span>}<span className="showcase__progress"><i style={{ transform: `scaleX(${index === step ? progress : 0})` }} /></span></button>)}</div>
-      <div className="showcase__media"><img src={imagePath(tab, step)} alt={`${active.label}: ${active.items[step][0]}`} /></div>
+      <div className="showcase__media" id="showcase-panel" role="tabpanel" aria-labelledby={`showcase-tab-${tab}`}><img src={imagePath(tab, step)} alt={`${active.label}: ${active.items[step][0]}`} loading="lazy" decoding="async" /></div>
     </div>
   </section>;
 }

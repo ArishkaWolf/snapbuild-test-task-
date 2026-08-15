@@ -11,8 +11,9 @@ afterEach(() => {
 describe('витрина', () => {
   it('переключает вкладки и шаги', () => {
     render(<Showcase />);
-    fireEvent.click(screen.getByRole('button', { name: 'Изображения' }));
+    fireEvent.click(screen.getByRole('tab', { name: 'Изображения' }));
     expect(screen.getByRole('button', { name: /В стиле и цвете бренда/ })).toHaveClass('is-open');
+    expect(screen.getByRole('tabpanel')).toHaveAttribute('aria-labelledby', 'showcase-tab-1');
     const steps = document.querySelectorAll('.showcase__steps button');
     fireEvent.click(steps[1]);
     expect(steps[1]).toHaveClass('is-open');

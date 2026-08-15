@@ -56,8 +56,9 @@ function HomePage() {
     };
   }, []);
   return <>
+    <a className="skip-link" href="#main-content">Перейти к содержанию</a>
     <Header />
-    <main>
+    <main id="main-content">
       <Hero />
       <Product />
       <Showcase />

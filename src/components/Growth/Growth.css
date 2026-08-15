@@ -115,10 +115,11 @@
 .impact__grid h3+p{margin-top:7px;font-size:14px}
 
 @media(min-width:1280px){
-  .pricing__head h2{white-space:nowrap}
-  .pricing__subtitle{white-space:nowrap}
   .impact__intro h2{white-space:nowrap}
 }
+
+.pricing__head>div:first-child{min-width:0}
+.pricing__toggle{flex:none}
 
 @media(max-width:1000px){
   .impact__grid{grid-template-columns:repeat(2,minmax(0,1fr))}

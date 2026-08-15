@@ -15,6 +15,7 @@ describe('динамические секции', () => {
     render(<UseCases />);
     fireEvent.click(screen.getByRole('tab', { name: /Дизайн/ }));
     expect(screen.getByText(/Масштабируйте систему/)).toBeInTheDocument();
+    expect(screen.getByRole('tabpanel')).toHaveAttribute('aria-labelledby', 'case-tab-1');
     act(() => vi.advanceTimersByTime(10000));
     expect(screen.getByText(/Персонализируйте каждое предложение/)).toBeInTheDocument();
   });
@@ -33,6 +34,7 @@ describe('динамические секции', () => {
     render(<><Pricing /><Impact /></>);
     expect(screen.getByText('39 000')).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: 'Месяц' }));
+    expect(screen.getByRole('button', { name: 'Месяц' })).toHaveAttribute('aria-pressed', 'true');
     expect(screen.getByText('49 000')).toBeInTheDocument();
     expect(screen.getByText('10×')).toBeInTheDocument();
   });

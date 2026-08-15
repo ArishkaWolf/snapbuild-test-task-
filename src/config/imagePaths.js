@@ -14,7 +14,6 @@ export const imagePaths = {
     asset('ozon.svg'),
     asset('t2.svg'),
     asset('avito.svg'),
-    asset('cian.svg'),
     asset('lenta.svg'),
   ],
   showcase: [
