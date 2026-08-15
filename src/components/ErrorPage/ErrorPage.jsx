@@ -7,7 +7,7 @@ export function ErrorPage({ code, title, description, onRetry }) {
     <p>{description}</p>
     <div className="error-page__actions">
       {onRetry && <button type="button" onClick={onRetry}>Попробовать снова</button>}
-      <a href="/">На главную</a>
+      <a href={import.meta.env.BASE_URL}>На главную</a>
     </div>
   </main>;
 }

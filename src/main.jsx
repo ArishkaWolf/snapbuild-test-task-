@@ -76,7 +76,8 @@ function HomePage() {
 }
 
 function App() {
-  const isHome = window.location.pathname === '/' || window.location.pathname === '/index.html';
+  const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+  const isHome = window.location.pathname === `${basePath}/` || window.location.pathname === `${basePath}/index.html`;
   return isHome ? <HomePage /> : <ErrorPage code="404" title="Страница не найдена" description="Возможно, адрес изменился или в нём есть опечатка." />;
 }
 
