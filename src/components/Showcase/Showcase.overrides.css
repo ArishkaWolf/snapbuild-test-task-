@@ -1,0 +1,9 @@
+.showcase__steps button{border-bottom:0}
+.showcase__progress{background:#d8d6d8}
+.showcase__media{min-height:0;height:auto}
+.showcase__media>img{height:auto;object-fit:initial;object-position:center}
+.showcase__steps button{font-size:30px}
+.showcase__step-description{font-size:22px}
+
+@media(max-width:900px){.showcase__steps button{font-size:25px}.showcase__step-description{font-size:19px}}
+@media(max-width:600px){.showcase__steps button{font-size:23px}.showcase__step-description{font-size:18px}}

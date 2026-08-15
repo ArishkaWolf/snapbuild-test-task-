@@ -1,0 +1,33 @@
+.faq-card__answer > div {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.faq-card__answer p {
+  min-height: 0;
+  overflow: visible;
+  padding: 0 36px 17px;
+}
+
+.faq-card__answer p:last-child {
+  padding-bottom: 0;
+}
+
+.faq-card.is-open .faq-card__answer > div {
+  padding-bottom: 34px;
+}
+
+.faq-card.is-open .faq-card__answer p {
+  padding-bottom: 17px;
+  opacity: 1;
+}
+
+.faq-card.is-open .faq-card__answer p:last-child {
+  padding-bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .faq-card__answer p {
+    padding-inline: 24px;
+  }
+}

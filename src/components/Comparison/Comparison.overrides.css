@@ -1,0 +1,4 @@
+.comparison__row>div{border-top:0}
+.comparison__row--header>div{border-bottom:1px solid #eeeeef}
+.comparison__brand,.comparison__brand+div{border-left:0!important}
+.comparison__brand-outline{background:linear-gradient(180deg,#ff6d3c 0%,#ff6ba7 46%,#bb6dff 100%) border-box;-webkit-mask:linear-gradient(#000 0 0) padding-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
