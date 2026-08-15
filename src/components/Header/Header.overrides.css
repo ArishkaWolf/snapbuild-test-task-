@@ -1,0 +1,5 @@
+.site-header__panel{height:clamp(76px,5.1vw,98px)}
+.site-header .logo{font-size:clamp(28px,1.82vw,35px)}
+.site-header .site-nav a{font-size:clamp(15px,.94vw,18px);padding:clamp(15px,1.04vw,20px) clamp(14px,.94vw,18px)}
+.site-header .button--dark{padding:clamp(17px,.94vw,23px) clamp(24px,1.72vw,33px);font-size:clamp(15px,.94vw,18px)}
+.site-nav .nav__cta{display:none}

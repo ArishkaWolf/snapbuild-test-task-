@@ -1,0 +1,8 @@
+.footer__content{max-width:1612px;margin-inline:auto;display:grid;grid-template-columns:1.42fr 2.58fr;column-gap:70px}
+.footer__about{display:block}
+.footer__about p{width:310px;margin-top:28px}
+.footer__links{grid-column:2;width:auto;margin:0;transform:none}
+.footer__bottom{grid-column:1/-1}
+@media(max-width:900px){.footer__content{display:block}.footer__links{width:65%;margin-top:50px}.footer__about p{width:auto}}
+@media(max-width:650px){.footer__links{width:100%}}
+.footer__mobile-email{display:none!important}

@@ -1,0 +1,13 @@
+@keyframes text-shadow-pass{0%{clip-path:inset(0 100% 0 0);opacity:0}1%{opacity:1}14%{clip-path:inset(0 75% 0 0)}86%{clip-path:inset(0 0 0 75%)}99%{opacity:1}100%{clip-path:inset(0 0 0 100%);opacity:0}}
+.button{position:relative}
+.button__label{position:relative;z-index:1}
+.button__label::after{position:absolute;inset:0;display:block;width:max-content;content:attr(data-label);pointer-events:none;clip-path:inset(0 100% 0 0)}
+.button.button--dark:hover .button__label{color:#fff!important;background:none!important;animation:none!important}
+.button.button--hero:hover .button__label,.button.button--footer:hover .button__label{background:linear-gradient(90deg,#ff6d3c 0%,#ff6ba7 46%,#bb6dff 100%)!important;background-clip:text!important;-webkit-background-clip:text!important;color:transparent!important;animation:none!important}
+.button.button--dark .button__label::after{color:#000}
+.button.button--hero .button__label::after,.button.button--footer .button__label::after{color:#fff}
+.button::after{display:none}
+.button__label::after{inset:-.12em 0;width:auto;color:transparent!important;text-shadow:none!important}
+.button--dark .button__label::after{background:#000}
+.button--hero .button__label::after,.button--footer .button__label::after{background:#fff}
+.button:hover .button__label::after{animation:text-shadow-pass .3s linear}

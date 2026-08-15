@@ -1,0 +1,4 @@
+.footer__content{max-width:none;padding-left:64px;padding-right:64px;grid-template-columns:1.1fr 1fr;column-gap:80px}
+.footer__links{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:900px){.footer__content{padding-left:28px;padding-right:28px;display:block}.footer__links{width:65%}}
+@media(max-width:650px){.footer__content{padding-left:12px;padding-right:12px}.footer__links{width:100%}}

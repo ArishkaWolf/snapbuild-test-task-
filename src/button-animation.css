@@ -1,0 +1,5 @@
+@keyframes button-text-sweep{from{background-position:120% 0}to{background-position:-120% 0}}
+.button.button--dark:hover{background:#000!important}
+.button.button--hero:hover,.button.button--footer:hover{background:#fff!important}
+.button.button--dark:hover .button__label{color:transparent;background:linear-gradient(90deg,#fff 0%,#fff 43%,#000 48%,#000 52%,#fff 57%,#fff 100%);background-size:250% 100%;background-clip:text;-webkit-background-clip:text;animation:button-text-sweep .85s ease both}
+.button.button--hero:hover .button__label,.button.button--footer:hover .button__label{color:transparent;background:linear-gradient(90deg,#ff6d3c 0%,#ff6ba7 40%,#fff 48%,#fff 52%,#bb6dff 60%,#ff6d3c 100%);background-size:250% 100%;background-clip:text;-webkit-background-clip:text;animation:button-text-sweep .85s ease both}

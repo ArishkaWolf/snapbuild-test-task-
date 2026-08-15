@@ -1,0 +1,118 @@
+html,body,#root{min-height:100%;background:#f3f3f3}
+main{width:100%;max-width:2560px;margin-inline:auto}
+.hero{width:100vw;margin-left:calc(50% - 50vw)}
+.footer{width:100%;max-width:2560px;margin-inline:auto}
+@media(min-width:1281px){.site-header__panel{max-width:1707px}.site-header{padding-inline:0}}
+
+@media (min-width:1024px){
+  .site-header .site-nav a,.site-header .button--dark{font-size:16px}
+
+  .hero h1{
+    font-size:calc(76 / 14.4 * 1vw);
+    font-weight:600;
+    line-height:1.08;
+    letter-spacing:calc(-3 / 76 * 1em);
+    max-width:calc(984 / 14.4 * 1vw);
+  }
+  .hero__copy p{
+    width:calc(984 / 14.4 * 1vw);
+    max-width:none;
+    margin-top:calc(30 / 14.4 * 1vw);
+    font-size:calc(18 / 14.4 * 1vw);
+    font-weight:500;
+    line-height:calc(24 / 18);
+  }
+
+  .product h2,.showcase h2,.comparison h2,.security h2,.roadmap h2,.faq h2,.growth h2{
+    font-size:calc(52 / 14.4 * 1vw);
+    font-weight:500;
+    line-height:1.2308;
+    letter-spacing:calc(-1 / 14.4 * 1vw);
+  }
+  .showcase h2{
+    font-size:calc(46 / 14.4 * 1vw);
+    line-height:1.08;
+    letter-spacing:calc(-1 / 14.4 * 1vw);
+    white-space:nowrap;
+  }
+  .product__intro,.comparison>p,.roadmap header p,.faq header p{
+    font-size:calc(18 / 14.4 * 1vw);
+    line-height:1.33;
+  }
+
+  .product-card h3,.security h3,.roadmap h3{font-size:calc(24 / 14.4 * 1vw);font-weight:500}
+  .product-card p,.security p,.roadmap article p,.showcase__step-description,.faq-card__answer p{
+    font-size:calc(16 / 14.4 * 1vw);
+    line-height:1.5;
+  }
+  .roadmap time{font-size:calc(18 / 14.4 * 1vw)}
+  .brands p{font-size:calc(18 / 14.4 * 1vw)}
+  .showcase__tabs button{font-size:calc(18 / 14.4 * 1vw)}
+  .showcase__steps button{font-size:calc(24 / 14.4 * 1vw)}
+  .comparison__row>div{
+    padding-inline:calc(32 / 14.4 * 1vw);
+    font-size:calc(14 / 14.4 * 1vw);
+    font-weight:500;
+    line-height:calc(20 / 14);
+  }
+  .comparison__row>div:first-child{font-weight:600}
+  .comparison__row--header>div{
+    gap:calc(8 / 14.4 * 1vw);
+    font-size:calc(16 / 14.4 * 1vw);
+    font-weight:600;
+    line-height:calc(24 / 16);
+    border-bottom:1px solid rgb(0 0 0 / .06);
+  }
+  .comparison__row--header>div:first-child{color:rgb(0 0 0 / .6)}
+  .faq-card button{font-size:calc(16 / 14.4 * 1vw);line-height:calc(20 / 16)}
+  .footer__cta h2{
+    width:100%;
+    font-size:40px;
+    font-weight:600;
+    line-height:calc(64 / 52);
+    letter-spacing:calc(-1.25 / 14.4 * 1vw);
+  }
+  .button--footer{
+    margin-top:calc(24 / 14.4 * 1vw);
+    padding:calc(14 / 14.4 * 1vw) calc(20 / 14.4 * 1vw);
+    border-radius:12px;
+    font-size:calc(14 / 14.4 * 1vw);
+    font-weight:600;
+    line-height:calc(20 / 14);
+  }
+  .button--hero{
+    margin-top:calc(24 / 14.4 * 1vw);
+    padding:calc(14 / 14.4 * 1vw) calc(20 / 14.4 * 1vw);
+    border-radius:12px;
+    font-size:calc(14 / 14.4 * 1vw);
+    line-height:calc(20 / 14);
+  }
+  .site-header .button--dark{
+    padding:14px 20px;
+    border-radius:12px;
+    font-size:16px;
+    line-height:20px;
+  }
+  .footer__about p,.footer__links a{font-size:calc(16 / 14.4 * 1vw)}
+  .footer__bottom{font-size:calc(14 / 14.4 * 1vw);font-weight:500;line-height:1.4286}
+  .footer__bottom span{white-space:nowrap}
+
+  .brands{display:flex;flex-direction:column;gap:calc(24 / 14.4 * 1vw)}
+  .brands__logos{
+    width:100%;
+    max-width:100%;
+    justify-content:center;
+    gap:calc(107 / 14.4 * 1vw);
+    overflow:hidden;
+  }
+  .brands p{
+    order:2;
+    margin:0;
+    padding:0 calc(40 / 14.4 * 1vw);
+    color:rgb(0 0 0 / .6);
+    font-size:calc(16 / 14.4 * 1vw);
+    font-weight:400;
+    line-height:1.5;
+    letter-spacing:calc(-.5 / 14.4 * 1vw);
+  }
+}
