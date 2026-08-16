@@ -1,2 +1,3 @@
 .roadmap header{padding-left:37px!important}
+.roadmap__scroller{touch-action:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
 @media(max-width:900px){.roadmap header{padding-left:20px!important}}

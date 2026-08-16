@@ -88,6 +88,11 @@ describe('основные компоненты', () => {
     fireEvent.pointerMove(roadmap, { clientX: 80, pointerId: 1 });
     fireEvent.pointerCancel(roadmap, { pointerId: 1 });
     expect(roadmap.scrollLeft).toBe(30);
+    const touchPointer = new MouseEvent('pointerdown', { bubbles: true, clientX: 100 });
+    Object.defineProperty(touchPointer, 'pointerType', { value: 'touch' });
+    fireEvent(roadmap, touchPointer);
+    fireEvent.pointerMove(roadmap, { clientX: 20, pointerId: 2, pointerType: 'touch' });
+    expect(roadmap.scrollLeft).toBe(30);
     fireEvent.keyDown(roadmap, { key: 'ArrowLeft' });
     expect(roadmap.scrollBy).toHaveBeenCalled();
   });

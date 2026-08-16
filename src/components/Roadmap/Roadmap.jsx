@@ -20,11 +20,16 @@ const releases = [
 
 export function Roadmap() {
   const scroller = useRef(null); const drag = useRef(null);
-  const pointerDown = (event) => { const el = scroller.current; drag.current = { startX: event.clientX, startLeft: el.scrollLeft }; el.setPointerCapture?.(event.pointerId); el.classList.add('is-dragging'); };
+  const pointerDown = (event) => {
+    if (event.pointerType === 'touch' || event.pointerType === 'pen') return;
+    const el = scroller.current;
+    drag.current = { startX: event.clientX, startLeft: el.scrollLeft };
+    el.setPointerCapture?.(event.pointerId);
+    el.classList.add('is-dragging');
+  };
   const pointerMove = (event) => {
     if (!drag.current) return;
-    const multiplier = window.matchMedia('(max-width: 767px)').matches ? 3.6 : 1;
-    scroller.current.scrollLeft = drag.current.startLeft - (event.clientX - drag.current.startX) * multiplier;
+    scroller.current.scrollLeft = drag.current.startLeft - (event.clientX - drag.current.startX);
   };
   const pointerEnd = (event) => {
     const el = scroller.current;
