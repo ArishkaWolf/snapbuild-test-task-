@@ -1,6 +1,6 @@
 html,body,#root{min-height:100%;background:#f3f3f3}
 main{width:100%;max-width:2560px;margin-inline:auto}
-.hero{width:100vw;margin-left:calc(50% - 50vw)}
+.hero{width:100%;margin-left:0}
 .footer{width:100%;max-width:2560px;margin-inline:auto}
 @media(min-width:1281px){.site-header__panel{max-width:1707px}.site-header{padding-inline:0}}
 
