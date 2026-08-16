@@ -193,13 +193,24 @@ html.compact-view .menu-toggle span { width: 24px; height: 2px; }
   @keyframes brand-marquee { to { transform: translateX(-50%); } }
 }
 
+@keyframes mobile-menu-backdrop-in {
+  from { background-color: rgb(255 255 255 / 0); }
+  to { background-color: #fff; }
+}
+
 @keyframes mobile-menu-item-in {
   from { opacity: 0; transform: translateY(-14px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes mobile-menu-control-in {
+  from { opacity: 0; transform: scale(.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
 html.compact-view .site-nav--open {
   background: #fff;
+  animation: mobile-menu-backdrop-in .18s ease-out both;
 }
 
 html.compact-view .site-nav--open > .logo,
@@ -208,14 +219,21 @@ html.compact-view .site-nav--open > a:not(.logo) {
   animation: mobile-menu-item-in .36s cubic-bezier(.16,1,.3,1) forwards;
 }
 
-html.compact-view .site-nav--open > .logo { animation-delay: .08s; }
-html.compact-view .site-nav--open > a:nth-of-type(2) { animation-delay: .14s; }
-html.compact-view .site-nav--open > a:nth-of-type(3) { animation-delay: .20s; }
-html.compact-view .site-nav--open > a:nth-of-type(4) { animation-delay: .26s; }
-html.compact-view .site-nav--open > a:nth-of-type(5) { animation-delay: .32s; }
-html.compact-view .site-nav--open > a:nth-of-type(6) { animation-delay: .40s; }
+html.compact-view .site-header:has(.site-nav--open) .menu-toggle {
+  opacity: 0;
+  animation: mobile-menu-control-in .28s cubic-bezier(.16,1,.3,1) .20s forwards;
+}
+
+html.compact-view .site-nav--open > .logo { animation-delay: .20s; }
+html.compact-view .site-nav--open > a:nth-of-type(2) { animation-delay: .38s; }
+html.compact-view .site-nav--open > a:nth-of-type(3) { animation-delay: .46s; }
+html.compact-view .site-nav--open > a:nth-of-type(4) { animation-delay: .54s; }
+html.compact-view .site-nav--open > a:nth-of-type(5) { animation-delay: .62s; }
+html.compact-view .site-nav--open > a:nth-of-type(6) { animation-delay: .70s; }
 
 @media (prefers-reduced-motion: reduce) {
+  html.compact-view .site-nav--open,
+  html.compact-view .site-header:has(.site-nav--open) .menu-toggle,
   html.compact-view .site-nav--open > .logo,
   html.compact-view .site-nav--open > a:not(.logo) {
     opacity: 1;
